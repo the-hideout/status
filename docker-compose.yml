@@ -1,0 +1,34 @@
+services:
+  status_page:
+    container_name: status_page
+    restart: unless-stopped
+    volumes:
+      - ./src/status_page/data:/app/data
+    ports:
+      - 3001:3001
+    build:
+      context: ./src/status_page
+      dockerfile: ./Dockerfile
+
+  caddy:
+    container_name: caddy-service
+    restart: unless-stopped
+    build:
+      context: ./src/caddy
+      dockerfile: ./Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./data/caddy_data:/data
+      - ./data/caddy_config:/config
+    depends_on:
+      - status_page
+    environment:
+      PROXY_BACKEND: status_page
+      PROXY_PORT: 3001
+      DOMAIN: ${DOMAIN}
+
+volumes:
+  caddy_data:
+  caddy_config:
