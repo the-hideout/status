@@ -1,5 +1,7 @@
 # status 🚦
 
+[![ci](https://github.com/the-hideout/status/actions/workflows/ci.yml/badge.svg)](https://github.com/the-hideout/status/actions/workflows/ci.yml)
+
 The-Hideout's official status page
 
 [**status.tarkov.dev**](https://status.tarkov.dev) 🔗
