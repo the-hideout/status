@@ -1,3 +1,8 @@
 *.pem
 data/
 !src/status_page/data/.gitkeep
+
+# Terraform
+terraform.auto.tfvars.json
+terraform/.terraform/providers
+**/.terraform/*
