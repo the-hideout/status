@@ -1,6 +1,7 @@
 *.pem
 data/
 !src/status_page/data/.gitkeep
+backups/
 
 # Terraform
 terraform.auto.tfvars.json
