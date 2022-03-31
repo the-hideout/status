@@ -2,7 +2,7 @@ FROM louislam/uptime-kuma:1.13.1-alpine
 
 # Here we load a custom StatusPage image. If this ever updates a new one will need to be pulled from the source
 # source: https://github.com/louislam/uptime-kuma
-COPY custom/StatusPage.8e2492a0.js dist/assets/StatusPage.8e2492a0.js
+COPY custom/StatusPage.12cbc0ad.js dist/assets/StatusPage.12cbc0ad.js
 COPY custom/index.html dist/index.html
 COPY custom/index.html .
 
