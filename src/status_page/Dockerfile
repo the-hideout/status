@@ -1,4 +1,4 @@
-FROM louislam/uptime-kuma:1.12.1-alpine
+FROM louislam/uptime-kuma:1.13.1-alpine
 
 # Here we load a custom StatusPage image. If this ever updates a new one will need to be pulled from the source
 # source: https://github.com/louislam/uptime-kuma
