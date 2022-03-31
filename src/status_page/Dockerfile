@@ -5,7 +5,6 @@ FROM louislam/uptime-kuma:1.12.1-alpine
 COPY custom/StatusPage.8e2492a0.js dist/assets/StatusPage.8e2492a0.js
 COPY custom/index.html dist/index.html
 COPY custom/index.html .
-COPY custom/api-router.js server/routers/api-router.js
 
 EXPOSE 3001
 VOLUME ["/app/data"]
