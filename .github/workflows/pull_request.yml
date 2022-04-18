@@ -6,6 +6,7 @@ on:
 
 jobs:
   pull_request:
+    environment: production
     runs-on: ubuntu-latest
 
     steps:
