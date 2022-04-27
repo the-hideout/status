@@ -1,13 +1,1 @@
-FROM louislam/uptime-kuma:1.13.1-alpine
-
-# Here we load a custom StatusPage image. If this ever updates a new one will need to be pulled from the source
-# source: https://github.com/louislam/uptime-kuma
-COPY custom/StatusPage.12cbc0ad.js dist/assets/StatusPage.12cbc0ad.js
-COPY custom/index.html dist/index.html
-COPY custom/index.html .
-
-EXPOSE 3001
-VOLUME ["/app/data"]
-HEALTHCHECK --interval=60s --timeout=30s --start-period=180s --retries=5 CMD node extra/healthcheck.js
-ENTRYPOINT ["/usr/bin/dumb-init", "--", "extra/entrypoint.sh"]
-CMD ["node", "server/server.js"]
+FROM louislam/uptime-kuma:1.15.0-alpine
