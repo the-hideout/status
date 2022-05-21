@@ -11,13 +11,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@ec3a7ce113134d7a93b817d10a8272cb61118579 # pin@v2
+      - uses: actions/checkout@7884fcad6b5d53d10323aee724dc68d8b9096a2e # pin@v2
 
-      - uses: azure/login@77f1b2e3fb80c0e8645114159d17008b8a2e475a # pin@v1
+      - uses: azure/login@ec3c14589bd3e9312b3cc8c41e6860e258df9010 # pin@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - uses: hashicorp/setup-terraform@3d8debd658c92063839bc97da5c2427100420dec # pin@v1
+      - uses: hashicorp/setup-terraform@ed3a0531877aca392eb870f440d9ae7aba83a6bd # pin@v1
         with:
           terraform_version: 1.1.7
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
@@ -45,3 +45,14 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script_stop: true
           script: DOMAIN=status.tarkov.dev ~/status/script/deploy
+
+      - uses: actions/setup-python@98f2ad02fd48d057ee3b4d4f66525b231c3e52b6 # pin@v3
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: health
+        working-directory: script/health
+        run: |
+          pip install -r requirements.txt
+          python health.py
