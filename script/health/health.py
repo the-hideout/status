@@ -17,7 +17,6 @@ def check():
         if TEXT_SEARCH in response.html.text:
             return True
         else:
-            print(response.html.text)
             return False
     except:
         return False
