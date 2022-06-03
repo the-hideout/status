@@ -1,6 +1,6 @@
 # status 🚦
 
-[![ci](https://github.com/the-hideout/status/actions/workflows/ci.yml/badge.svg)](https://github.com/the-hideout/status/actions/workflows/ci.yml)
+[![ci](https://github.com/the-hideout/status/actions/workflows/ci.yml/badge.svg)](https://github.com/the-hideout/status/actions/workflows/ci.yml) [![Discord](https://img.shields.io/discord/956236955815907388?color=7388DA&label=Discord)](https://discord.gg/XPAsKGHSzH)
 
 The-Hideout's official status page
 
