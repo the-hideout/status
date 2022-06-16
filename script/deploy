@@ -1,9 +1,9 @@
 #!/bin/bash
 
-cd ~/status
+cd /home/status/status
 
-git fetch --all
-git reset --hard origin/$1
+sudo git fetch --all
+sudo git reset --hard origin/$1
 
 echo "[-] Killing old docker processes"
 sudo -E bash -c 'source ~/.profile && docker-compose down -v -t 1'
