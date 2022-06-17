@@ -126,16 +126,3 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script_stop: true
           script: ~/status/script/deploy ${{ steps.branch-deploy.outputs.ref }}
-
-      - uses: actions/setup-python@98f2ad02fd48d057ee3b4d4f66525b231c3e52b6 # pin@v3
-        if: ${{ steps.branch-deploy.outputs.continue == 'true' && steps.branch-deploy.outputs.noop != 'true' }}
-        with:
-          python-version: '3.10'
-          cache: 'pip'
-
-      - name: health
-        if: ${{ steps.branch-deploy.outputs.continue == 'true' && steps.branch-deploy.outputs.noop != 'true' }}
-        working-directory: script/health
-        run: |
-          pip install -r requirements.txt
-          python health.py
