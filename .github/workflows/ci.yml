@@ -44,4 +44,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script_stop: true
-          script: ~/status/script/deploy main
+          script: ~/status/script/deploy -r="main" -d="status"

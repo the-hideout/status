@@ -125,4 +125,4 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script_stop: true
-          script: ~/status/script/deploy ${{ steps.branch-deploy.outputs.ref }}
+          script: ~/status/script/deploy -r="${{ steps.branch-deploy.outputs.ref }}" -f="${{ steps.branch-deploy.outputs.fork_checkout }}" -d="status" -n="${{ steps.branch-deploy.outputs.fork_full_name }}"
