@@ -4,7 +4,7 @@
 
 The-Hideout's official status page
 
-[**status.tarkov.dev**](https://status.tarkov.dev/status) 🔗
+[**status.tarkov.dev**](https://status.tarkov.dev/) 🔗
 
 ## Running locally 🔨
 
