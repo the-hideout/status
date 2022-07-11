@@ -1,5 +1,21 @@
 {$DOMAIN} {
-  reverse_proxy {$PROXY_BACKEND}:{$PROXY_PORT}  {
-    header_down Strict-Transport-Security max-age=31536000;
+
+  # Custom API route for external services, cached
+  handle /api/status-page/heartbeat/api {
+    header Cache-Control "public, max-age=300"
+    header Access-Control-Allow-Origin "*"
+    encode {
+		  gzip 9
+	  }
+    reverse_proxy {$PROXY_BACKEND}:{$PROXY_PORT}  {
+      header_down Strict-Transport-Security max-age=31536000;
+    }
+  }
+
+  # All other paths are proxied to the backend
+  handle /* {
+    reverse_proxy {$PROXY_BACKEND}:{$PROXY_PORT}  {
+      header_down Strict-Transport-Security max-age=31536000;
+    }
   }
 }
