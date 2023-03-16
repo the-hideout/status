@@ -17,15 +17,17 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: github/branch-deploy@e0b8fec9f3b1c48ea3dddeedca59af02e4d69a53 # pin@v4.3.0
+      - uses: github/branch-deploy@v5.1.0
         id: branch-deploy
         with:
           admins: the-hideout/core-contributors
           admins_pat: ${{ secrets.BRANCH_DEPLOY_ADMINS_PAT }}
+          environment_targets: production
+          environment_urls: production|https://status.tarkov.dev
 
-      - name: Checkout
+      - name: checkout
         if: ${{ steps.branch-deploy.outputs.continue == 'true' }}
-        uses: actions/checkout@7884fcad6b5d53d10323aee724dc68d8b9096a2e # pin@v2
+        uses: actions/checkout@v3.3.0
         with:
           ref: ${{ steps.branch-deploy.outputs.ref }}
 
