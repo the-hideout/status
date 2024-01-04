@@ -125,7 +125,7 @@ jobs:
 
       - name: SSH Remote Deploy
         if: ${{ steps.branch-deploy.outputs.continue == 'true' && steps.branch-deploy.outputs.noop != 'true' }}
-        uses: appleboy/ssh-action@8f949198563a347a01c65ffc60399aef2b59d4ab # pin@v1.0.1
+        uses: appleboy/ssh-action@2451745138b602d3e100a6def50c8e4e39591d4c # pin@v1.0.2
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
