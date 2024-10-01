@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: github/branch-deploy@v9.1.1
+      - uses: github/branch-deploy@v9.8.1
         id: branch-deploy
         with:
           admins: the-hideout/core-contributors
@@ -33,7 +33,7 @@ jobs:
         with:
           ref: ${{ steps.branch-deploy.outputs.ref }}
 
-      - uses: azure/login@8c334a195cbb38e46038007b304988d888bf676a # pin@v1
+      - uses: azure/login@a65d910e8af852a8061c627c456678983e180302 # pin@v1
         if: ${{ steps.branch-deploy.outputs.continue == 'true' }}
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}

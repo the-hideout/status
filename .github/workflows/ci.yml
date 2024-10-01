@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: azure/login@8c334a195cbb38e46038007b304988d888bf676a # pin@v1
+      - uses: azure/login@a65d910e8af852a8061c627c456678983e180302 # pin@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
