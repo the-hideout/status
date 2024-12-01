@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: azure/login@8c334a195cbb38e46038007b304988d888bf676a # pin@v1
+      - uses: azure/login@a65d910e8af852a8061c627c456678983e180302 # pin@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
@@ -37,7 +37,7 @@ jobs:
         run: terraform apply -auto-approve
 
       - name: SSH Remote Deploy
-        uses: appleboy/ssh-action@029f5b4aeeeb58fdfe1410a5d17f967dacf36262 # pin@v1.0.3
+        uses: appleboy/ssh-action@7eaf76671a0d7eec5d98ee897acda4f968735a17 # pin@v1.2.0
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
