@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: github/branch-deploy@v9.1.1
+      - uses: github/branch-deploy@v9.10.0
         id: branch-deploy
         with:
           admins: the-hideout/core-contributors
@@ -33,7 +33,7 @@ jobs:
         with:
           ref: ${{ steps.branch-deploy.outputs.ref }}
 
-      - uses: azure/login@8c334a195cbb38e46038007b304988d888bf676a # pin@v1
+      - uses: azure/login@a65d910e8af852a8061c627c456678983e180302 # pin@v1
         if: ${{ steps.branch-deploy.outputs.continue == 'true' }}
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
@@ -125,7 +125,7 @@ jobs:
 
       - name: SSH Remote Deploy
         if: ${{ steps.branch-deploy.outputs.continue == 'true' && steps.branch-deploy.outputs.noop != 'true' }}
-        uses: appleboy/ssh-action@029f5b4aeeeb58fdfe1410a5d17f967dacf36262 # pin@v1.0.3
+        uses: appleboy/ssh-action@7eaf76671a0d7eec5d98ee897acda4f968735a17 # pin@v1.2.0
         with:
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
