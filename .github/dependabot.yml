@@ -11,3 +11,23 @@ updates:
           - "*"
     schedule:
       interval: monthly
+    cooldown:
+      default-days: 45
+  - package-ecosystem: "docker"
+    directory: "/src/caddy"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 45
+  - package-ecosystem: "docker"
+    directory: "/src/status_page"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 45
+  - package-ecosystem: "terraform"
+    directory: "/terraform"
+    schedule:
+      interval: "weekly"
+    cooldown:
+      default-days: 45
