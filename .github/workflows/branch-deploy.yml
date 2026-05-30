@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: github/branch-deploy@v9.1.1
+      - uses: github/branch-deploy@4c2569bad1865c45e0be37b5e06ee5a6b805a93e # pin@v9.1.1
         id: branch-deploy
         with:
           admins: the-hideout/core-contributors
@@ -29,7 +29,7 @@ jobs:
 
       - name: checkout
         if: ${{ steps.branch-deploy.outputs.continue == 'true' }}
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # pin@v4
         with:
           ref: ${{ steps.branch-deploy.outputs.ref }}
 
